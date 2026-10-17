@@ -17,7 +17,7 @@ export function createDefaultScenario(): Scenario {
     maintenanceGrowthPercent: 2,
     annualInsurance: 1800,
     insuranceGrowthPercent: 2,
-    monthlyHoa: 0,
+    monthlyHoa: 100,
     hoaGrowthPercent: 2,
     purchaseCostPercent: 3,
     saleCostPercent: 6,

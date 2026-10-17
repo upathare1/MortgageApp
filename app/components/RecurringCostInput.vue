@@ -61,10 +61,13 @@ const displayedValue = computed({
         </button>
       </div>
     </div>
-    <div class="grid gap-2 sm:grid-cols-2">
+    <div class="grid gap-3">
       <div>
-        <span class="mb-1 block text-xs text-muted">Starting cost</span>
-        <div class="relative">
+        <div class="mb-1 flex items-center justify-between gap-2 whitespace-nowrap text-xs text-muted">
+          <span>Starting cost</span>
+          <span>{{ mode === 'percent' ? '% / yr' : amountUnit }}</span>
+        </div>
+        <div>
           <input
             :id="id"
             v-model.number="displayedValue"
@@ -73,17 +76,16 @@ const displayedValue = computed({
             :max="mode === 'percent' ? 100 : undefined"
             :step="mode === 'percent' ? 0.1 : amountStep"
             required
-            class="w-full rounded-md border border-accented bg-default px-3 py-2 pr-14 text-sm text-highlighted outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+            class="w-full rounded-md border border-accented bg-default px-3 py-2 text-sm text-highlighted outline-none focus:border-primary focus:ring-1 focus:ring-primary"
           >
-          <span class="pointer-events-none absolute inset-y-0 right-2 flex items-center text-xs text-muted">{{ mode === 'percent' ? '% / yr' : amountUnit }}</span>
         </div>
       </div>
       <div>
-        <label
-          :for="growthId"
-          class="mb-1 block text-xs text-muted"
-        >Annual growth</label>
-        <div class="relative">
+        <div class="mb-1 flex items-center justify-between gap-2 whitespace-nowrap text-xs text-muted">
+          <label :for="growthId">Annual growth</label>
+          <span>% / yr</span>
+        </div>
+        <div>
           <input
             :id="growthId"
             v-model.number="growth"
@@ -91,9 +93,8 @@ const displayedValue = computed({
             min="-99"
             step="0.1"
             required
-            class="w-full rounded-md border border-accented bg-default px-3 py-2 pr-12 text-sm text-highlighted outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+            class="w-full rounded-md border border-accented bg-default px-3 py-2 text-sm text-highlighted outline-none focus:border-primary focus:ring-1 focus:ring-primary"
           >
-          <span class="pointer-events-none absolute inset-y-0 right-2 flex items-center text-xs text-muted">% / yr</span>
         </div>
       </div>
     </div>
